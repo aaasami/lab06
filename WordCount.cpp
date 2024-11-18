@@ -56,7 +56,7 @@ int WordCount::incrWordCount(std::string word) {
             return pair.second;
         }
     }
-    table[index].push_back(word, 1);
+    table[index].push_back(std::make_pair(word, 1));
     return 1;
 }
 
@@ -82,7 +82,7 @@ bool WordCount::isWordChar(char c) {
 }
 
 std::string WordCount::makeValidWord(std::string word) {
-	tansform(word.begin(), word.end(), word.begin(), std::tolower);
+	transform(word.begin(), word.end(), word.begin(), std::tolower);
 
     string result;
     for (size_t i = 0; i < word.size(); ++i) {
