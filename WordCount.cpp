@@ -2,6 +2,9 @@
 
 #include "WordCount.h"
 
+#include <algorithm> //do not forget!!!
+#include <cctype>	 //do not forget!!!
+
 using namespace std;
 
 // Default constructor
