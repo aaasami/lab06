@@ -86,9 +86,7 @@ bool WordCount::isWordChar(char c) {
 
 std::string WordCount::makeValidWord(std::string word) {
 	 //do not forget std::
-	std::transform(word.begin(), word.end(), word.begin() { 
-		return std::tolower(c);
-	})
+	std::transform(word.begin(), word.end(), word.begin(),[](unsigned char c) { return std::tolower(c); });
 
     string result;
     for (size_t i = 0; i < word.size(); ++i) {
