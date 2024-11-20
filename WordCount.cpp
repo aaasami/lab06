@@ -30,14 +30,13 @@ int WordCount::getTotalWords() const {
 }
 
 int WordCount::getNumUniqueWords() const {
-	int unique = 0;
-    for (const auto &bucket : table) {
-        if (!bucket.empty()) {
-            unique += 1;
-        }
+    int c = 0;
+    for (const auto *cur = table; cur < table + CAPACITY; ++cur) {
+        c += cur->size();
     }
-    return unique;
+    return c;
 }
+
 
 int WordCount::getWordCount(std::string word) const {
 	word = makeValidWord(word);
