@@ -89,6 +89,7 @@ std::string WordCount::makeValidWord(std::string word) {
 	std::transform(word.begin(), word.end(), word.begin(),[](unsigned char c) { return std::tolower(c); });
 
     //addition than part a
+    if (word.empty()) return "";
     word = std::regex_replace(word, std::regex("^[^a-zA-Z]+|[^a-zA-Z]+$"), "");
 
 
