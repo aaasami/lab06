@@ -1,7 +1,7 @@
 // WordCount.cpp
 
 #include "WordCount.h"
-
+#include <regex>
 #include <algorithm> //do not forget!!!
 #include <cctype>	 //do not forget!!!
 
@@ -87,6 +87,11 @@ bool WordCount::isWordChar(char c) {
 std::string WordCount::makeValidWord(std::string word) {
 	 //do not forget std::
 	std::transform(word.begin(), word.end(), word.begin(),[](unsigned char c) { return std::tolower(c); });
+
+    //addition than part a
+    word = std::regex_replace(word, std::regex("^[^a-zA-Z]+|[^a-zA-Z]+$"), "");
+
+
 
     string result;
     for (size_t i = 0; i < word.size(); ++i) {
