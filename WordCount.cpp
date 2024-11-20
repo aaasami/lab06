@@ -52,6 +52,9 @@ int WordCount::getWordCount(std::string word) const {
 	
 int WordCount::incrWordCount(std::string word) {
 	word = makeValidWord(word);
+    if (word.empty()){
+            return 0;
+    } 
     size_t index = hash(word);
     for (auto &pair : table[index]) {
         if (pair.first == word) {
@@ -89,7 +92,9 @@ std::string WordCount::makeValidWord(std::string word) {
 	std::transform(word.begin(), word.end(), word.begin(),[](unsigned char c) { return std::tolower(c); });
 
     //addition than part a
-    if (word.empty()) return "";
+    if (word.empty()){
+            return 0;
+    } 
     word = std::regex_replace(word, std::regex("^[^a-zA-Z]+|[^a-zA-Z]+$"), "");
 
 
